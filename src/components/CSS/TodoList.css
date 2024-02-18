@@ -1,0 +1,24 @@
+.todo-items {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0px;
+  align-items: center;
+}
+
+.todo-items-container {
+  display: flex;
+  align-items: center; /* Added align-items property */
+}
+
+.todo-items-text {
+  /* Corrected class name from .todo-items-text to .todo-item-text */
+  padding-left: 16px;
+  color: #404040;
+  font-size: 22px;
+}
+
+.todo-items-cross-icon {
+  /* Corrected class name from .todo-itemsc-cross-icon to .todo-item-cross-icon */
+  cursor: pointer;
+  padding-right: 25px;
+}
