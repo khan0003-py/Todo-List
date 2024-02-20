@@ -3,17 +3,16 @@ import TodoList from "./TodoList";
 import "./CSS/Todo.css";
 
 export default function Todo() {
-  let count = 0;
+  const [count, setCount] = useState(0);
   const [todos, setTodos] = useState([]);
   const inputRef = useRef(null);
 
   const add = () => {
-    setTodos([
-      ...todos,
-      { no: count++, text: inputRef.current.value, display: "" },
-    ]);
+    const newCount = count + 1; // Increment count first
+    setTodos([...todos, { no: newCount, text: inputRef.current.value, display: "" }]);
     inputRef.current.value = "";
-    localStorage.setItem("todos_count", count);
+    setCount(newCount); // Update state using setCount
+    localStorage.setItem("todos_count", newCount);
   };
 
   useEffect(() => {
@@ -25,7 +24,6 @@ export default function Todo() {
 
   useEffect(() => {
     setTodos(JSON.parse(localStorage.getItem("todos")));
-    count = localStorage.getItem("todos_count");
   }, []);
 
   return (
